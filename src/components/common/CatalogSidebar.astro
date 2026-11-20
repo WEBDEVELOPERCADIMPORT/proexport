@@ -1,0 +1,102 @@
+---
+import type { Lang } from "../../i18n/config.i18n";
+import { getUiLabels } from "../../i18n/ui.i18n";
+
+export interface SidebarCategory {
+  id: string;
+  slug: string;
+  name: Record<string, string>;
+}
+
+export interface SidebarBrand {
+  id: string;
+  slug: string;
+  name: string;
+  logo: string;
+}
+
+interface Props {
+  lang: Lang;
+  categories: SidebarCategory[];
+  brands: SidebarBrand[];
+  activeCategorySlug?: string;
+  activeBrandSlug?: string;
+}
+
+const { lang, categories, brands, activeCategorySlug, activeBrandSlug } = Astro.props;
+const labels = getUiLabels(lang);
+---
+
+<aside class="bg-sidebar-bg border-t-4 border-navy p-6 space-y-6" data-animate="slide-in-left">
+  <!-- Section 1: Product categories -->
+  <div>
+    <h2 class="text-base font-bold text-accent mb-4">
+      {labels.sidebarCategoriesTitle}
+    </h2>
+    <ul class="space-y-2.5 text-sm">
+      {
+        categories.map((cat) => {
+          const isActive = activeCategorySlug === cat.slug;
+          const catName = cat.name[lang] ?? cat.name.es ?? cat.slug;
+          return (
+            <li class="flex items-start gap-2">
+              <span
+                class:list={[
+                  "mt-1.5 w-1.5 h-1.5 rounded-full shrink-0",
+                  isActive ? "bg-navy" : "bg-slate-400",
+                ]}
+                aria-hidden="true"
+              />
+              <a
+                href={`/${lang}/product-category/${cat.slug}/`}
+                class:list={[
+                  "transition-colors leading-snug",
+                  isActive
+                    ? "font-bold text-navy"
+                    : "text-slate-700 hover:text-accent",
+                ]}
+              >
+                {catName}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+
+  <hr class="border-t border-gray-300" />
+
+  <!-- Section 2: Products by Brand -->
+  <div>
+    <h2 class="text-base font-bold text-accent mb-4">
+      {labels.sidebarBrandsTitle}
+    </h2>
+    <div class="grid grid-cols-2 gap-3">
+      {
+        brands.map((brand) => {
+          const isActive = activeBrandSlug === brand.slug;
+          return (
+            <a
+              href={`/${lang}/productos/?brand=${brand.slug}`}
+              title={brand.name}
+              class:list={[
+                "flex items-center justify-center bg-transparent p-1.5 transition-all",
+                isActive
+                  ? "opacity-100 scale-105"
+                  : "opacity-85 hover:opacity-100",
+              ]}
+            >
+              <img
+                src={brand.logo || `/images/brands/${brand.slug}.svg`}
+                alt={brand.name}
+                loading="lazy"
+                class="h-14 sm:h-16 w-full object-contain"
+              />
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</aside>

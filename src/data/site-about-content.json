@@ -1,0 +1,74 @@
+{
+  "es": {
+    "meta": {
+      "title": "Acerca de Nosotros | Proexport Guatemala",
+      "description": "Conoce la historia, misión y valores de Proexport Guatemala y nuestra alianza de más de 20 años con CAD Import Inc."
+    },
+    "banner": {
+      "title": "ACERCA DE NOSOTROS",
+      "image": "/images/banners/nosotros-banner.webp"
+    },
+    "history": {
+      "tag": "Nuestra Historia",
+      "title": "Más de 20 años conectando culturas",
+      "description": "Con más de 20 años de trayectoria junto a nuestra empresa hermana CAD Import Inc., hemos consolidado una cadena de exportación y distribución confiable que lleva productos auténticos de Guatemala y Centroamérica a miles de hogares en Estados Unidos.",
+      "image": "/images/about/history-handshake.jpg"
+    },
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Ofrecer productos de la más alta calidad que representen el sabor, la identidad y el esfuerzo de nuestra tierra, brindando un servicio logístico eficiente y cercano a cada uno de nuestros socios comerciales.",
+      "image": "/images/about/mission-team.jpg"
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "pillars": [
+        {
+          "id": "clients",
+          "title": "Nuestros clientes",
+          "description": "Construimos relaciones comerciales duraderas basadas en la confianza, la puntualidad en cada entrega y el compromiso con el crecimiento de sus tiendas."
+        },
+        {
+          "id": "staff",
+          "title": "Nuestro personal",
+          "description": "Valoramos el talento, la dedicación y el trabajo en equipo de nuestra gente, motor fundamental para mantener nuestros estándares de excelencia."
+        }
+      ]
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "About Us | Proexport Guatemala",
+      "description": "Learn about the history, mission, and values of Proexport Guatemala and our 20+ year partnership with CAD Import Inc."
+    },
+    "banner": {
+      "title": "ABOUT US",
+      "image": "/images/banners/nosotros-banner.webp"
+    },
+    "history": {
+      "tag": "Our History",
+      "title": "Over 20 years connecting cultures",
+      "description": "With over 20 years of experience alongside our sister company CAD Import Inc., we have built a reliable export and distribution chain that brings authentic products from Guatemala and Central America to thousands of homes in the United States.",
+      "image": "/images/about/history-handshake.jpg"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To deliver top-quality products that represent the flavor, identity, and dedication of our homeland, providing efficient and personalized logistics service to each of our business partners.",
+      "image": "/images/about/mission-team.jpg"
+    },
+    "values": {
+      "title": "Our Values",
+      "pillars": [
+        {
+          "id": "clients",
+          "title": "Our Clients",
+          "description": "We build lasting business relationships grounded in trust, on-time deliveries, and a commitment to the growth of their stores."
+        },
+        {
+          "id": "staff",
+          "title": "Our Staff",
+          "description": "We value the talent, dedication, and teamwork of our people, the driving force behind maintaining our standards of excellence."
+        }
+      ]
+    }
+  }
+}

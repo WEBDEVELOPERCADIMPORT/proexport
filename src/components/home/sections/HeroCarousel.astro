@@ -1,0 +1,221 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import homeContent from '../../../data/site-home-content.json';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = homeContent[lang] ?? homeContent.es;
+const slides = t.hero.slides;
+const brandLabel = lang === 'es' ? 'Proexport Guatemala' : 'Proexport Guatemala';
+---
+
+<section
+  class="hero-carousel relative w-full h-[500px] sm:h-[580px] lg:h-[calc(100vh-105px)] min-h-[500px] max-h-[760px] overflow-hidden bg-navy-dark text-white"
+  aria-label={brandLabel}
+>
+  <!-- Slides -->
+  <div class="relative w-full h-full">
+    {
+      slides.map((slide, index) => (
+        <div
+          class:list={[
+            'hero-slide absolute inset-0 transition-opacity duration-700 ease-in-out',
+            index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none',
+          ]}
+          data-slide-index={index}
+          aria-hidden={index !== 0 ? 'true' : 'false'}
+        >
+          <img
+            src={slide.image}
+            alt={slide.title}
+            class="absolute inset-0 w-full h-full object-cover object-center"
+            loading={index === 0 ? 'eager' : 'lazy'}
+          />
+
+          <!-- Soft gradient overlay for text contrast -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-black/55 via-black/15 to-transparent" />
+
+          <!-- Slide content (lower-left two-line display matching design) -->
+          <div class="relative z-10 mx-auto max-w-7xl h-full px-6 sm:px-10 lg:px-14 flex items-end pb-16 sm:pb-24 lg:pb-28">
+            <div
+              class:list={[
+                'hero-text max-w-3xl transition-all duration-700 ease-out',
+                index === 0 ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0',
+              ]}
+            >
+              <p class="text-xl sm:text-3xl lg:text-4xl font-light uppercase tracking-wider text-white/95 leading-tight drop-shadow-sm">
+                {slide.eyebrow}
+              </p>
+              <h1 class="mt-1 text-4xl sm:text-6xl lg:text-[64px] font-extrabold uppercase tracking-tight leading-[1.02] text-white drop-shadow-sm">
+                {slide.headline}
+              </h1>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Curved translucent gradient panel on the right -->
+  <svg
+    class="hidden md:block absolute top-0 right-0 h-full w-[24%] lg:w-[21%] pointer-events-none z-15"
+    viewBox="0 0 200 600"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <defs>
+      <linearGradient id="heroCurveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#334155" stop-opacity="0.42" />
+        <stop offset="50%" stop-color="#1E293B" stop-opacity="0.52" />
+        <stop offset="100%" stop-color="#0F172A" stop-opacity="0.72" />
+      </linearGradient>
+    </defs>
+    <path d="M 0,0 Q 85,300 25,600 L 200,600 L 200,0 Z" fill="url(#heroCurveGrad)" />
+  </svg>
+
+  <!-- Vertical numeric pagination -->
+  <div
+    class="absolute right-6 sm:right-10 lg:right-14 top-1/2 -translate-y-1/2 z-20 flex flex-col items-end gap-3"
+    role="tablist"
+    aria-label="Slide navigation"
+  >
+    {
+      slides.map((slide, index) => {
+        const num = String(index + 1).padStart(2, '0');
+        const isActive = index === 0;
+        return (
+          <button
+            type="button"
+            role="tab"
+            aria-selected={isActive ? 'true' : 'false'}
+            aria-label={`Slide ${num}: ${slide.title}`}
+            data-hero-dot={index}
+            class:list={[
+              'hero-dot group flex items-center gap-3 text-sm font-medium tracking-widest transition-all cursor-pointer py-0.5',
+              isActive ? 'text-white' : 'text-white/55 hover:text-white/85',
+            ]}
+          >
+            <span
+              class:list={[
+                'hero-dot-line block h-[1.5px] bg-white/90 transition-all duration-300',
+                isActive ? 'w-14 opacity-100' : 'w-0 opacity-0 group-hover:w-6 group-hover:opacity-60',
+              ]}
+            />
+            <span>{num}</span>
+          </button>
+        );
+      })
+    }
+  </div>
+</section>
+
+<script>
+  let heroTimer: number | undefined;
+
+  function initHeroCarousel() {
+    if (heroTimer !== undefined) {
+      window.clearInterval(heroTimer);
+      heroTimer = undefined;
+    }
+
+    const carousel = document.querySelector<HTMLElement>('.hero-carousel');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>('.hero-slide'));
+    const dots = Array.from(carousel.querySelectorAll<HTMLButtonElement>('.hero-dot'));
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+
+    function goToSlide(nextIndex: number) {
+      const targetIndex = (nextIndex + slides.length) % slides.length;
+      if (targetIndex === currentIndex) return;
+
+      const prevIndex = currentIndex;
+      currentIndex = targetIndex;
+
+      slides.forEach((slide, idx) => {
+        const active = idx === currentIndex;
+        const outgoing = idx === prevIndex;
+        const textEl = slide.querySelector<HTMLElement>('.hero-text');
+
+        slide.classList.toggle('opacity-100', active);
+        slide.classList.toggle('z-10', active);
+        slide.classList.toggle('opacity-0', !active);
+        slide.classList.toggle('z-0', !active);
+        slide.classList.toggle('pointer-events-none', !active);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+
+        if (!textEl) return;
+
+        if (outgoing) {
+          // Outgoing text slides out to the left
+          textEl.classList.remove('translate-x-0', 'opacity-100', 'translate-x-20');
+          textEl.classList.add('-translate-x-20', 'opacity-0');
+        } else if (active) {
+          // Prepare incoming text on the right, then animate into center
+          textEl.classList.add('transition-none');
+          textEl.classList.remove('translate-x-0', 'opacity-100', '-translate-x-20');
+          textEl.classList.add('translate-x-20', 'opacity-0');
+          void textEl.offsetWidth;
+          textEl.classList.remove('transition-none');
+          window.requestAnimationFrame(() => {
+            textEl.classList.remove('translate-x-20', 'opacity-0');
+            textEl.classList.add('translate-x-0', 'opacity-100');
+          });
+        } else {
+          // Park other slides on the right ready for next entrance
+          textEl.classList.remove('translate-x-0', 'opacity-100', '-translate-x-20');
+          textEl.classList.add('translate-x-20', 'opacity-0');
+        }
+      });
+
+      dots.forEach((dot, idx) => {
+        const active = idx === currentIndex;
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+        dot.classList.toggle('text-white', active);
+        dot.classList.toggle('text-white/45', !active);
+
+        const line = dot.querySelector<HTMLElement>('.hero-dot-line');
+        if (line) {
+          line.classList.toggle('w-14', active);
+          line.classList.toggle('opacity-100', active);
+          line.classList.toggle('w-0', !active);
+          line.classList.toggle('opacity-0', !active);
+        }
+      });
+    }
+
+    function startAutoRotate() {
+      if (heroTimer !== undefined) {
+        window.clearInterval(heroTimer);
+      }
+      heroTimer = window.setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, 3000);
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idxAttr = dot.getAttribute('data-hero-dot');
+        if (idxAttr === null) return;
+        goToSlide(Number(idxAttr));
+        startAutoRotate();
+      });
+    });
+
+    startAutoRotate();
+  }
+
+  initHeroCarousel();
+  document.addEventListener('astro:page-load', initHeroCarousel);
+  document.addEventListener('astro:before-swap', () => {
+    if (heroTimer !== undefined) {
+      window.clearInterval(heroTimer);
+      heroTimer = undefined;
+    }
+  });
+</script>

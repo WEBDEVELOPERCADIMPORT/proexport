@@ -1,0 +1,97 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import catalogContent from '../../../data/site-catalog-content.json';
+
+interface Props {
+  lang: Lang;
+  search?: string;
+  sort?: 'default' | 'asc' | 'desc';
+  baseUrl: string;
+  brandSlug?: string;
+}
+
+const {
+  lang,
+  search = '',
+  sort = 'default',
+  baseUrl,
+  brandSlug,
+} = Astro.props;
+
+const t = catalogContent[lang] ?? catalogContent.es;
+---
+
+<div class="space-y-4">
+  <form method="get" action={baseUrl} class="flex w-full overflow-hidden rounded">
+    {brandSlug && <input type="hidden" name="brand" value={brandSlug} />}
+    {sort && sort !== 'default' && <input type="hidden" name="sort" value={sort} />}
+
+    <input
+      type="search"
+      name="search"
+      value={search}
+      placeholder={t.toolbar.searchPlaceholder}
+      aria-label={t.toolbar.searchPlaceholder}
+      class="w-full bg-[#1D70B8] px-4 py-3 text-sm text-white placeholder-white/85 focus:outline-none"
+    />
+
+    <button
+      type="submit"
+      aria-label="Search"
+      class="flex shrink-0 items-center justify-center bg-[#0F3D6E] px-5 text-white transition-colors hover:bg-[#0A2B4F] cursor-pointer"
+    >
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </button>
+  </form>
+
+  <div class="flex justify-end">
+    <select
+      name="sort"
+      data-catalog-sort
+      data-base-url={baseUrl}
+      aria-label={t.toolbar.sortDefault}
+      class="rounded border border-slate-300 bg-white px-3 py-2 text-xs font-medium uppercase tracking-wide text-slate-700 focus:border-[#1D70B8] focus:outline-none"
+    >
+      <option value="default" selected={sort === 'default'}>
+        {t.toolbar.sortDefault}
+      </option>
+      <option value="asc" selected={sort === 'asc'}>
+        {t.toolbar.sortAsc}
+      </option>
+      <option value="desc" selected={sort === 'desc'}>
+        {t.toolbar.sortDesc}
+      </option>
+    </select>
+  </div>
+</div>
+
+<script>
+  function initCatalogToolbar() {
+    const selects = document.querySelectorAll<HTMLSelectElement>('[data-catalog-sort]');
+    selects.forEach((select) => {
+      if (select.dataset.initialized === 'true') return;
+      select.dataset.initialized = 'true';
+
+      select.addEventListener('change', () => {
+        const baseUrl = select.dataset.baseUrl || window.location.pathname;
+        const params = new URLSearchParams(window.location.search);
+
+        if (select.value === 'default') {
+          params.delete('sort');
+        } else {
+          params.set('sort', select.value);
+        }
+
+        params.delete('page');
+
+        const query = params.toString();
+        window.location.assign(query ? `${baseUrl}?${query}` : baseUrl);
+      });
+    });
+  }
+
+  initCatalogToolbar();
+  document.addEventListener('astro:page-load', initCatalogToolbar);
+</script>

@@ -1,0 +1,76 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { LANGUAGES, type Lang } from '../../../../i18n/config.i18n';
+import { actions } from 'astro:actions';
+import PageBanner from '../../../../components/about/sections/PageBanner.astro';
+import CatalogSidebar from '../../../../components/common/CatalogSidebar.astro';
+import ProductDetail from '../../../../components/product/sections/ProductDetail.astro';
+import RelatedProducts from '../../../../components/product/sections/RelatedProducts.astro';
+
+const lang = Astro.params.lang as Lang;
+const { category: categorySlug, product: productSlug } = Astro.params;
+
+if (!(lang in LANGUAGES) || !categorySlug || !productSlug) {
+  return Astro.redirect('/404');
+}
+
+const [
+  { data: categoriesResponse },
+  { data: brandsResponse },
+  { data: productResponse, error: productError },
+] = await Promise.all([
+  Astro.callAction(actions.getCategories, {}),
+  Astro.callAction(actions.getBrands, {}),
+  Astro.callAction(actions.getProductBySlug, {
+    categorySlug,
+    productSlug,
+  }),
+]);
+
+if (productError || !productResponse?.data) {
+  return Astro.redirect('/404');
+}
+
+const categories = categoriesResponse?.data ?? [];
+const brands = brandsResponse?.data ?? [];
+const { product, relatedProducts } = productResponse.data;
+
+const activeCategory = categories.find((cat) => cat.slug === categorySlug);
+const categoryName = activeCategory
+  ? activeCategory.name[lang] ?? activeCategory.name.es
+  : categorySlug;
+const productName = product.name;
+const bannerTitle = lang === 'es' ? 'NUESTROS PRODUCTOS' : 'OUR PRODUCTS';
+---
+
+<Layout
+  title={`${productName} | Proexport Guatemala`}
+  lang={lang}
+  description={`${productName} (${product.sku})`}
+  image={product.image}
+>
+  <main>
+    <PageBanner
+      title={bannerTitle}
+      image="/images/banners/productos-banner.jpg"
+    />
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-8">
+      <CatalogSidebar
+        lang={lang}
+        categories={categories}
+        brands={brands}
+        activeCategorySlug={categorySlug}
+      />
+
+      <div>
+        <ProductDetail
+          product={product}
+          categoryName={categoryName}
+          lang={lang}
+        />
+        <RelatedProducts products={relatedProducts} lang={lang} />
+      </div>
+    </div>
+  </main>
+</Layout>

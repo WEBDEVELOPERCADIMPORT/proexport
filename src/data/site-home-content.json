@@ -1,0 +1,224 @@
+{
+  "es": {
+    "meta": {
+      "title": "Proexport Guatemala | Exportación de Productos Centroamericanos",
+      "description": "Conectamos el sabor, la tradición y la calidad de Guatemala con más de 2,000 tiendas en Estados Unidos junto a CAD Import Inc."
+    },
+    "hero": {
+      "slides": [
+        {
+          "id": "slide-1",
+          "eyebrow": "UNA PARTE DE",
+          "headline": "LO QUE SOMOS",
+          "title": "Una parte de lo que somos",
+          "subtitle": "Llevamos la esencia y calidad de los productos guatemaltecos a cada rincón de Estados Unidos.",
+          "image": "/images/home/hero-1.jpg",
+          "ctaText": "Explorar productos",
+          "ctaPath": "productos"
+        },
+        {
+          "id": "slide-2",
+          "eyebrow": "EL SABOR DE",
+          "headline": "NUESTRA TIERRA",
+          "title": "El sabor de nuestra tierra",
+          "subtitle": "Alimentos auténticos, atoles, chocolates y botanas elaboradas con tradición.",
+          "image": "/images/home/hero-2.jpg",
+          "ctaText": "Ver alimentos",
+          "ctaPath": "productos"
+        },
+        {
+          "id": "slide-3",
+          "eyebrow": "UNA AVENTURA",
+          "headline": "TROPICAL",
+          "title": "Una aventura tropical",
+          "subtitle": "Bebidas refrescantes de aloe vera, agua de coco y jugos con pulpa natural.",
+          "image": "/images/home/hero-3.jpg",
+          "ctaText": "Ver bebidas",
+          "ctaPath": "productos"
+        },
+        {
+          "id": "slide-4",
+          "eyebrow": "NUESTRA CULTURA",
+          "headline": "COSTUMBRES Y SABORES",
+          "title": "Nuestra cultura costumbres y sabores",
+          "subtitle": "Más de 20 años fortaleciendo el puente comercial entre Guatemala y Estados Unidos.",
+          "image": "/images/home/hero-4.jpg",
+          "ctaText": "Conócenos",
+          "ctaPath": "acerca-de-nosotros"
+        }
+      ]
+    },
+    "sisterCompany": {
+      "tag": "Nuestra Empresa Hermana",
+      "title": "CAD Import Inc.",
+      "description": "En alianza estratégica con nuestra empresa hermana CAD Import Inc., distribuimos directamente a más de 2,000 tiendas en Estados Unidos, garantizando abastecimiento continuo y frescura en cada entrega.",
+      "highlightNumber": "+2,000",
+      "highlightLabel": "Tiendas en EE. UU.",
+      "sealImage": "/images/home/cad-seal.svg",
+      "ctaText": "Conoce nuestra historia",
+      "ctaPath": "acerca-de-nosotros"
+    },
+    "brands": {
+      "title": "Nuestras marcas",
+      "subtitle": "Portafolio de marcas líderes en alimentos, bebidas, cuidado personal, cabello y hogar."
+    },
+    "coverage": {
+      "title": "Nuestra cobertura",
+      "subtitle": "Presencia consolidada a través de nuestra red de distribución en Estados Unidos.",
+      "bgImage": "/images/home/coverage-bg.jpg",
+      "mapImage": "/images/home/usa-map.png",
+      "locations": [
+        "Delaware",
+        "New Jersey",
+        "Pensilvania",
+        "New York",
+        "Maryland",
+        "Washington",
+        "Virginia",
+        "Ohio",
+        "Indiana",
+        "Kentucky",
+        "Texas",
+        "Florida",
+        "South California",
+        "Long Beach",
+        "Los Angeles",
+        "Iowa",
+        "Misury",
+        "Kansas",
+        "Nebraska",
+        "Oregon",
+        "Washington State",
+        "Giorgia",
+        "Luisiana",
+        "Carolina del norte"
+      ]
+    },
+    "contactBanner": {
+      "title": "¿Te interesa distribuir nuestros productos en su tienda?",
+      "subtitle": "Escríbenos y nuestro equipo comercial te asesorará con nuestro catálogo mayorista.",
+      "ctaText": "Solicitar información"
+    },
+    "contactForm": {
+      "fullName": "Nombre completo",
+      "company": "Empresa o tienda",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "successMessage": "Gracias por contactarnos. Nuestro equipo responderá a la brevedad.",
+      "errorMessage": "Por favor verifica los campos e intenta nuevamente."
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "Proexport Guatemala | Central American Product Exports",
+      "description": "Connecting the flavor, tradition, and quality of Guatemala with over 2,000 stores across the United States alongside CAD Import Inc."
+    },
+    "hero": {
+      "slides": [
+        {
+          "id": "slide-1",
+          "eyebrow": "PART OF",
+          "headline": "WE ARE",
+          "title": "A part of who we are",
+          "subtitle": "Bringing the essence and quality of Guatemalan products to every corner of the United States.",
+          "image": "/images/home/hero-1.jpg",
+          "ctaText": "Explore products",
+          "ctaPath": "productos"
+        },
+        {
+          "id": "slide-2",
+          "eyebrow": "THE FLAVOR OF",
+          "headline": "OUR LAND",
+          "title": "The flavor of our land",
+          "subtitle": "Authentic foods, traditional hot beverages, chocolates, and snacks crafted with heritage.",
+          "image": "/images/home/hero-2.jpg",
+          "ctaText": "View food",
+          "ctaPath": "productos"
+        },
+        {
+          "id": "slide-3",
+          "eyebrow": "A TROPICAL",
+          "headline": "ADVENTURE",
+          "title": "A tropical adventure",
+          "subtitle": "Refreshing aloe vera beverages, coconut water, and juices with natural pulp.",
+          "image": "/images/home/hero-3.jpg",
+          "ctaText": "View beverages",
+          "ctaPath": "productos"
+        },
+        {
+          "id": "slide-4",
+          "eyebrow": "OUR CULTURE",
+          "headline": "CUSTOMS & FLAVORS",
+          "title": "Our culture, customs and flavors",
+          "subtitle": "Over 20 years strengthening the commercial bridge between Guatemala and the United States.",
+          "image": "/images/home/hero-4.jpg",
+          "ctaText": "About us",
+          "ctaPath": "acerca-de-nosotros"
+        }
+      ]
+    },
+    "sisterCompany": {
+      "tag": "Our Sister Company",
+      "title": "CAD Import Inc.",
+      "description": "In strategic partnership with our sister company CAD Import Inc., we distribute directly to over 2,000 stores across the United States, ensuring reliable supply and freshness in every delivery.",
+      "highlightNumber": "+2,000",
+      "highlightLabel": "Stores in the U.S.",
+      "sealImage": "/images/home/cad-seal.svg",
+      "ctaText": "Discover our story",
+      "ctaPath": "acerca-de-nosotros"
+    },
+    "brands": {
+      "title": "Our Brands",
+      "subtitle": "Portfolio of leading brands across food, beverages, personal care, hair care, and home care."
+    },
+    "coverage": {
+      "title": "Our Coverage",
+      "subtitle": "Consolidated presence through our distribution network across the United States.",
+      "bgImage": "/images/home/coverage-bg.jpg",
+      "mapImage": "/images/home/usa-map.png",
+      "locations": [
+        "Delaware",
+        "New Jersey",
+        "Pensilvania",
+        "New York",
+        "Maryland",
+        "Washington",
+        "Virginia",
+        "Ohio",
+        "Indiana",
+        "Kentucky",
+        "Texas",
+        "Florida",
+        "South California",
+        "Long Beach",
+        "Los Angeles",
+        "Iowa",
+        "Misury",
+        "Kansas",
+        "Nebraska",
+        "Oregon",
+        "Washington State",
+        "Giorgia",
+        "Luisiana",
+        "Carolina del norte"
+      ]
+    },
+    "contactBanner": {
+      "title": "Interested in distributing our products in your store?",
+      "subtitle": "Write to us and our sales team will assist you with our wholesale catalog.",
+      "ctaText": "Request information"
+    },
+    "contactForm": {
+      "fullName": "Full name",
+      "company": "Company or store",
+      "email": "Email address",
+      "phone": "Phone number",
+      "message": "Message",
+      "submit": "Send message",
+      "successMessage": "Thank you for contacting us. Our team will respond shortly.",
+      "errorMessage": "Please check the fields and try again."
+    }
+  }
+}

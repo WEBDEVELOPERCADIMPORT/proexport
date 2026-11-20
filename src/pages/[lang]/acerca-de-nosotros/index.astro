@@ -1,0 +1,31 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { LANGUAGES, type Lang } from '../../../i18n/config.i18n';
+import aboutContent from '../../../data/site-about-content.json';
+import PageBanner from '../../../components/about/sections/PageBanner.astro';
+import HistoryIntro from '../../../components/about/sections/HistoryIntro.astro';
+import MissionSplit from '../../../components/about/sections/MissionSplit.astro';
+import ValuesGrid from '../../../components/about/sections/ValuesGrid.astro';
+
+const lang = Astro.params.lang as Lang;
+
+if (!(lang in LANGUAGES)) {
+  return Astro.redirect('/404');
+}
+
+const content = aboutContent[lang];
+---
+
+<Layout
+  title={content.meta.title}
+  lang={lang}
+  description={content.meta.description}
+  image={content.banner.image}
+>
+  <main>
+    <PageBanner title={content.banner.title} image={content.banner.image} />
+    <HistoryIntro lang={lang} />
+    <MissionSplit lang={lang} />
+    <ValuesGrid lang={lang} />
+  </main>
+</Layout>

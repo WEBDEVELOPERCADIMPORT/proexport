@@ -1,0 +1,213 @@
+---
+import type { Lang } from "../../i18n/config.i18n";
+import countriesData from "../../data/countries/countries.data.json";
+
+interface Props {
+  id?: string;
+  name?: string;
+  lang?: Lang;
+  placeholder?: string;
+  required?: boolean;
+  class?: string;
+}
+
+const {
+  id = `phone-input-${Math.random().toString(36).substring(2, 9)}`,
+  name = "phone",
+  lang = "es",
+  placeholder = "",
+  required = false,
+  class: className = "",
+} = Astro.props;
+
+const countries = countriesData.countries;
+const defaultCountry = countries.find((c) => c.code === "GT") ?? countries[0];
+---
+
+<div class={`relative w-full country-phone-wrapper ${className}`}>
+  <div
+    class="relative flex items-center w-full bg-[#EFEFEF] border-0 rounded-sm focus-within:ring-2 focus-within:ring-[#0072B5]/30 transition-all"
+  >
+    {/* Flag & dial code selector trigger */}
+    <button
+      type="button"
+      class="country-btn flex items-center gap-1.5 pl-3 pr-2.5 py-2.5 bg-transparent hover:bg-black/5 border-r border-slate-300/70 rounded-l-sm text-xs font-medium text-slate-700 transition-colors focus:outline-none cursor-pointer shrink-0"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      aria-label={lang === "es"
+        ? "Seleccionar código de país"
+        : "Select country code"}
+    >
+      <span class="selected-flag text-base leading-none select-none"
+        >{defaultCountry.flag}</span
+      >
+      <span class="selected-dial text-xs font-medium text-slate-700 select-none"
+        >{defaultCountry.dialCode}</span
+      >
+      <span class="text-[10px] text-slate-500 select-none">▾</span>
+    </button>
+
+    {/* Hidden inputs for form submission */}
+    <input
+      type="hidden"
+      name={`${name}DialCode`}
+      class="country-dial-code"
+      value={defaultCountry.dialCode}
+    />
+    <input
+      type="hidden"
+      name={`${name}Country`}
+      class="country-iso-code"
+      value={defaultCountry.code}
+    />
+
+    {/* Phone input */}
+    <input
+      id={id}
+      type="tel"
+      name={name}
+      placeholder={placeholder}
+      required={required}
+      class="phone-field w-full bg-transparent px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none rounded-r-sm"
+    />
+  </div>
+
+  {/* Country List Dropdown */}
+  <div
+    class="country-dropdown absolute left-0 top-full mt-1.5 w-72 sm:w-80 max-h-60 overflow-y-auto bg-white border border-slate-200 rounded-sm shadow-xl hidden z-50 py-1 text-xs text-slate-700 divide-y divide-slate-100"
+    role="listbox"
+  >
+    {
+      countries.map((country) => {
+        const localizedName =
+          country.name[lang as "es" | "en"] ?? country.name.en;
+        const isDefault = country.code === defaultCountry.code;
+        return (
+          <button
+            type="button"
+            class={`country-option w-full px-3.5 py-2.5 flex items-center justify-between text-left hover:bg-[#0072B5]/10 transition-colors cursor-pointer ${
+              isDefault ? "bg-[#0072B5]/10 font-semibold text-[#0F3D6E]" : ""
+            }`}
+            data-code={country.code}
+            data-dial={country.dialCode}
+            data-flag={country.flag}
+            data-name={localizedName}
+            role="option"
+            aria-selected={isDefault}
+          >
+            <div class="flex items-center gap-2.5 overflow-hidden pr-2">
+              <span class="text-base shrink-0 select-none">{country.flag}</span>
+              <span class="truncate text-slate-800 text-xs sm:text-sm">
+                {localizedName}
+              </span>
+            </div>
+            <span class="text-xs font-semibold text-slate-500 shrink-0 select-none">
+              {country.dialCode}
+            </span>
+          </button>
+        );
+      })
+    }
+  </div>
+</div>
+
+<script>
+  function setupCountryPhoneInputs() {
+    document
+      .querySelectorAll<HTMLElement>(".country-phone-wrapper")
+      .forEach((wrapper) => {
+        if (wrapper.dataset.bound === "true") return;
+        wrapper.dataset.bound = "true";
+
+        const btn = wrapper.querySelector<HTMLButtonElement>(".country-btn");
+        const dropdown =
+          wrapper.querySelector<HTMLElement>(".country-dropdown");
+        const flagDisplay =
+          wrapper.querySelector<HTMLElement>(".selected-flag");
+        const dialDisplay =
+          wrapper.querySelector<HTMLElement>(".selected-dial");
+        const dialCodeInput =
+          wrapper.querySelector<HTMLInputElement>(".country-dial-code");
+        const isoCodeInput =
+          wrapper.querySelector<HTMLInputElement>(".country-iso-code");
+        const phoneInput =
+          wrapper.querySelector<HTMLInputElement>(".phone-field");
+        const options =
+          wrapper.querySelectorAll<HTMLButtonElement>(".country-option");
+
+        if (
+          !btn ||
+          !dropdown ||
+          !flagDisplay ||
+          !dialCodeInput ||
+          !isoCodeInput
+        )
+          return;
+
+        const toggleDropdown = (e: Event) => {
+          e.stopPropagation();
+          const isOpen = !dropdown.classList.contains("hidden");
+          document
+            .querySelectorAll(".country-dropdown")
+            .forEach((d) => d.classList.add("hidden"));
+          if (!isOpen) {
+            dropdown.classList.remove("hidden");
+            btn.setAttribute("aria-expanded", "true");
+          } else {
+            dropdown.classList.add("hidden");
+            btn.setAttribute("aria-expanded", "false");
+          }
+        };
+
+        btn.addEventListener("click", toggleDropdown);
+
+        options.forEach((opt) => {
+          opt.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const dial = opt.dataset.dial ?? "+502";
+            const flag = opt.dataset.flag ?? "🇬🇹";
+            const code = opt.dataset.code ?? "GT";
+
+            flagDisplay.textContent = flag;
+            if (dialDisplay) {
+              dialDisplay.textContent = dial;
+            }
+            dialCodeInput.value = dial;
+            isoCodeInput.value = code;
+
+            options.forEach((o) => {
+              o.classList.remove(
+                "bg-[#0072B5]/10",
+                "font-semibold",
+                "text-[#0F3D6E]",
+              );
+              o.setAttribute("aria-selected", "false");
+            });
+            opt.classList.add(
+              "bg-[#0072B5]/10",
+              "font-semibold",
+              "text-[#0F3D6E]",
+            );
+            opt.setAttribute("aria-selected", "true");
+
+            dropdown.classList.add("hidden");
+            btn.setAttribute("aria-expanded", "false");
+
+            if (phoneInput) {
+              phoneInput.focus();
+            }
+          });
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!wrapper.contains(e.target as Node)) {
+            dropdown.classList.add("hidden");
+            btn.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+  }
+
+  setupCountryPhoneInputs();
+  document.addEventListener("astro:page-load", setupCountryPhoneInputs);
+</script>

@@ -1,0 +1,138 @@
+{
+  "es": {
+    "meta": {
+      "title": "Nuestros Productos | Proexport Guatemala",
+      "description": "Explora nuestro catálogo completo de alimentos, bebidas, cuidado personal, cuidado para el cabello y cuidado para el hogar."
+    },
+    "banner": {
+      "title": "NUESTROS PRODUCTOS",
+      "image": "/images/banners/productos-banner.jpg"
+    },
+    "promoSlides": [
+      {
+        "id": "promo-relox",
+        "brandSlug": "relox",
+        "title": "Relox Cuidado Personal",
+        "image": "/images/banners/promo-relox.jpg"
+      },
+      {
+        "id": "promo-cancun",
+        "brandSlug": "cancun",
+        "title": "Cancun Bebidas Tropicales",
+        "image": "/images/banners/promo-cancun.jpg"
+      },
+      {
+        "id": "promo-titas",
+        "brandSlug": "titas",
+        "title": "Titas Cuidado del Hogar",
+        "image": "/images/banners/promo-titas.jpg"
+      },
+      {
+        "id": "promo-guatelinda",
+        "brandSlug": "guatelinda",
+        "title": "Guatelinda Alimentos Auténticos",
+        "image": "/images/banners/promo-guatelinda.jpg"
+      },
+      {
+        "id": "promo-fixion",
+        "brandSlug": "fixion",
+        "title": "Fixion Cuidado del Cabello",
+        "image": "/images/banners/promo-fixion.jpg"
+      }
+    ],
+    "toolbar": {
+      "searchPlaceholder": "Buscar por nombre o SKU...",
+      "sortDefault": "Orden predeterminado",
+      "sortAsc": "Nombre: A - Z",
+      "sortDesc": "Nombre: Z - A",
+      "resultsLabel": "productos"
+    },
+    "productCard": {
+      "viewProduct": "VER PRODUCTO"
+    },
+    "productDetail": {
+      "skuLabel": "SKU",
+      "categoryLabel": "Categoría",
+      "brandLabel": "Marca",
+      "presentationLabel": "Presentación",
+      "relatedTitle": "Productos relacionados",
+      "backToCatalog": "Volver al catálogo",
+      "zoomHint": "Pasa el cursor para ampliar",
+      "inquireCta": "Consultar disponibilidad"
+    },
+    "pagination": {
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "pageOf": "de",
+      "emptyState": "No se encontraron productos con los filtros seleccionados."
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "Our Products | Proexport Guatemala",
+      "description": "Explore our complete catalog of food, beverages, personal care, hair care, and home care products."
+    },
+    "banner": {
+      "title": "OUR PRODUCTS",
+      "image": "/images/banners/productos-banner.jpg"
+    },
+    "promoSlides": [
+      {
+        "id": "promo-relox",
+        "brandSlug": "relox",
+        "title": "Relox Personal Care",
+        "image": "/images/banners/promo-relox.jpg"
+      },
+      {
+        "id": "promo-cancun",
+        "brandSlug": "cancun",
+        "title": "Cancun Tropical Beverages",
+        "image": "/images/banners/promo-cancun.jpg"
+      },
+      {
+        "id": "promo-titas",
+        "brandSlug": "titas",
+        "title": "Titas Home Care",
+        "image": "/images/banners/promo-titas.jpg"
+      },
+      {
+        "id": "promo-guatelinda",
+        "brandSlug": "guatelinda",
+        "title": "Guatelinda Authentic Foods",
+        "image": "/images/banners/promo-guatelinda.jpg"
+      },
+      {
+        "id": "promo-fixion",
+        "brandSlug": "fixion",
+        "title": "Fixion Hair Care",
+        "image": "/images/banners/promo-fixion.jpg"
+      }
+    ],
+    "toolbar": {
+      "searchPlaceholder": "Search by name or SKU...",
+      "sortDefault": "Default sorting",
+      "sortAsc": "Name: A - Z",
+      "sortDesc": "Name: Z - A",
+      "resultsLabel": "products"
+    },
+    "productCard": {
+      "viewProduct": "VIEW PRODUCT"
+    },
+    "productDetail": {
+      "skuLabel": "SKU",
+      "categoryLabel": "Category",
+      "brandLabel": "Brand",
+      "presentationLabel": "Presentation",
+      "relatedTitle": "Related products",
+      "backToCatalog": "Back to catalog",
+      "zoomHint": "Hover to zoom",
+      "inquireCta": "Inquire about availability"
+    },
+    "pagination": {
+      "prev": "Previous",
+      "next": "Next",
+      "pageOf": "of",
+      "emptyState": "No products found matching the selected filters."
+    }
+  }
+}

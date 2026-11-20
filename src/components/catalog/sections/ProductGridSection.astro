@@ -1,0 +1,68 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import type { Product } from '../../../actions/products/getProducts.action';
+import catalogContent from '../../../data/site-catalog-content.json';
+import CatalogToolbar from '../components/CatalogToolbar.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Pagination from '../components/Pagination.astro';
+
+interface Props {
+  lang: Lang;
+  products: Product[];
+  total: number;
+  page: number;
+  totalPages: number;
+  baseUrl: string;
+  search?: string;
+  sort?: 'default' | 'asc' | 'desc';
+  brandSlug?: string;
+}
+
+const {
+  lang,
+  products,
+  total,
+  page,
+  totalPages,
+  baseUrl,
+  search,
+  sort = 'default',
+  brandSlug,
+} = Astro.props;
+
+const t = catalogContent[lang] ?? catalogContent.es;
+
+const queryParams: Record<string, string> = {};
+if (search) queryParams.search = search;
+if (sort && sort !== 'default') queryParams.sort = sort;
+if (brandSlug) queryParams.brand = brandSlug;
+---
+
+<section class="space-y-6" data-total-products={total}>
+  <CatalogToolbar
+    lang={lang}
+    search={search}
+    sort={sort}
+    baseUrl={baseUrl}
+    brandSlug={brandSlug}
+  />
+
+  {products.length === 0 ? (
+    <div class="rounded-lg border border-slate-200 bg-slate-50 px-6 py-12 text-center">
+      <p class="text-sm font-medium text-slate-600">{t.pagination.emptyState}</p>
+    </div>
+  ) : (
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {products.map((product) => (
+        <ProductCard product={product} lang={lang} />
+      ))}
+    </div>
+  )}
+
+  <Pagination
+    currentPage={page}
+    totalPages={totalPages}
+    baseUrl={baseUrl}
+    queryParams={queryParams}
+  />
+</section>

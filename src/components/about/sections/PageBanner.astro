@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  highlight?: string;
+  image: string;
+}
+
+const { title, highlight, image } = Astro.props;
+---
+
+<section class="relative w-full h-56 sm:h-64 md:h-72 overflow-hidden bg-navy flex items-center justify-center">
+  <img
+    src={image}
+    alt={highlight ? `${title} ${highlight}` : title}
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    loading="eager"
+  />
+  <div class="absolute inset-0 bg-[#0F3D6E]/75" aria-hidden="true"></div>
+
+  <div class="relative z-10 mx-auto max-w-5xl px-6 text-center" data-animate="fade-up">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-wider text-white proexport-underline-center">
+      {title}
+      {highlight && <span class="text-sky-300"> {highlight}</span>}
+    </h1>
+  </div>
+</section>

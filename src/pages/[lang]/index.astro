@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { LANGUAGES, type Lang } from '../../i18n/config.i18n';
+import homeContent from '../../data/site-home-content.json';
+import { actions } from 'astro:actions';
+import HeroCarousel from '../../components/home/sections/HeroCarousel.astro';
+import SisterCompanyBanner from '../../components/home/sections/SisterCompanyBanner.astro';
+import BrandsStrip from '../../components/home/sections/BrandsStrip.astro';
+import CoverageMap from '../../components/home/sections/CoverageMap.astro';
+import ContactSection from '../../components/home/sections/ContactSection.astro';
+
+const lang = Astro.params.lang as Lang;
+
+if (!(lang in LANGUAGES)) {
+  return Astro.redirect('/404');
+}
+
+const content = homeContent[lang];
+const { data: brandsResponse } = await Astro.callAction(actions.getBrands, {});
+const brands = brandsResponse?.data ?? [];
+---
+
+<Layout
+  title={content.meta.title}
+  lang={lang}
+  description={content.meta.description}
+>
+  <main>
+    <HeroCarousel lang={lang} />
+    <SisterCompanyBanner lang={lang} />
+    <BrandsStrip lang={lang} brands={brands} />
+    <CoverageMap lang={lang} />
+    <ContactSection lang={lang} />
+  </main>
+</Layout>

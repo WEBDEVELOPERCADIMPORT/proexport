@@ -1,0 +1,46 @@
+{
+  "brands": [
+    {
+      "id": "cad",
+      "slug": "cad",
+      "name": "CAD",
+      "logo": "/images/brands/cad.svg",
+      "order": 1
+    },
+    {
+      "id": "cancun",
+      "slug": "cancun",
+      "name": "Cancun",
+      "logo": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/Logo_cancun.svg",
+      "order": 2
+    },
+    {
+      "id": "guatelinda",
+      "slug": "guatelinda",
+      "name": "Guatelinda",
+      "logo": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/Logo_guatelinda.png",
+      "order": 3
+    },
+    {
+      "id": "relox",
+      "slug": "relox",
+      "name": "Relox",
+      "logo": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/Logo_rolex.svg",
+      "order": 4
+    },
+    {
+      "id": "fixion",
+      "slug": "fixion",
+      "name": "Fixion",
+      "logo": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/5fd3eee4-43ea-4636-8749-1d2ac1dfde4b/Logo_Fixion.png",
+      "order": 5
+    },
+    {
+      "id": "titas",
+      "slug": "titas",
+      "name": "Titas",
+      "logo": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/acdb47b7-0fd8-4b38-aaf5-6a72c1047747/Logo_Titas.png",
+      "order": 6
+    }
+  ]
+}

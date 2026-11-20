@@ -1,0 +1,82 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { LANGUAGES, type Lang } from '../../../i18n/config.i18n';
+import catalogContent from '../../../data/site-catalog-content.json';
+import { actions } from 'astro:actions';
+import PromoSlider from '../../../components/catalog/sections/PromoSlider.astro';
+import CatalogSidebar from '../../../components/common/CatalogSidebar.astro';
+import ProductGridSection from '../../../components/catalog/sections/ProductGridSection.astro';
+
+const lang = Astro.params.lang as Lang;
+
+if (!(lang in LANGUAGES)) {
+  return Astro.redirect('/404');
+}
+
+const content = catalogContent[lang];
+const searchParams = Astro.url.searchParams;
+
+const brandSlug = searchParams.get('brand')?.trim() || undefined;
+const search = searchParams.get('search')?.trim() || undefined;
+const rawSort = searchParams.get('sort');
+const sort: 'default' | 'asc' | 'desc' =
+  rawSort === 'asc' || rawSort === 'desc' ? rawSort : 'default';
+const rawPage = Number(searchParams.get('page') ?? '1');
+const page = Number.isInteger(rawPage) && rawPage >= 1 ? rawPage : 1;
+
+const [
+  { data: categoriesResponse },
+  { data: brandsResponse },
+  { data: productsResponse },
+] = await Promise.all([
+  Astro.callAction(actions.getCategories, {}),
+  Astro.callAction(actions.getBrands, {}),
+  Astro.callAction(actions.getProducts, {
+    brandSlug,
+    search,
+    sort,
+    page,
+    limit: 20,
+  }),
+]);
+
+const categories = categoriesResponse?.data ?? [];
+const brands = brandsResponse?.data ?? [];
+const productsData = productsResponse?.data ?? {
+  products: [],
+  total: 0,
+  page: 1,
+  totalPages: 0,
+};
+---
+
+<Layout
+  title={content.meta.title}
+  lang={lang}
+  description={content.meta.description}
+  image={content.banner.image}
+>
+  <main>
+    <PromoSlider lang={lang} />
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-8">
+      <CatalogSidebar
+        lang={lang}
+        categories={categories}
+        brands={brands}
+        activeBrandSlug={brandSlug}
+      />
+      <ProductGridSection
+        lang={lang}
+        products={productsData.products}
+        total={productsData.total}
+        page={productsData.page}
+        totalPages={productsData.totalPages}
+        baseUrl={`/${lang}/productos/`}
+        search={search}
+        sort={sort}
+        brandSlug={brandSlug}
+      />
+    </div>
+  </main>
+</Layout>

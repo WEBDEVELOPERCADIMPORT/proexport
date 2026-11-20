@@ -1,0 +1,46 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import type { Product } from '../../../actions/products/getProducts.action';
+import catalogContent from '../../../data/site-catalog-content.json';
+import ProductImageZoom from '../components/ProductImageZoom.astro';
+
+interface Props {
+  product: Product;
+  categoryName: string;
+  lang: Lang;
+}
+
+const { product, categoryName, lang } = Astro.props;
+const t = catalogContent[lang] ?? catalogContent.es;
+const productName = product.name;
+---
+
+<section class="grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:gap-12">
+  <div data-animate="slide-in-left">
+    <ProductImageZoom src={product.image} alt={productName} />
+  </div>
+
+  <div class="pt-2" data-animate="slide-in-right" data-animate-delay="100">
+    <h1 class="text-xl font-semibold text-[#1D70B8] sm:text-2xl">
+      {productName}
+    </h1>
+
+    <hr class="my-4 border-slate-200" />
+
+    <p class="text-sm text-slate-500">
+      {t.productDetail.skuLabel} {product.sku}
+    </p>
+
+    <hr class="my-4 border-slate-200" />
+
+    <p class="text-sm text-slate-600">
+      <span>{t.productDetail.categoryLabel}: </span>
+      <a
+        href={`/${lang}/product-category/${product.category_slug}/`}
+        class="font-semibold text-[#0F3D6E] transition-colors hover:text-[#1D70B8]"
+      >
+        {categoryName}
+      </a>
+    </p>
+  </div>
+</section>

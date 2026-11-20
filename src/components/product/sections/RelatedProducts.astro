@@ -1,0 +1,28 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import type { Product } from '../../../actions/products/getProducts.action';
+import catalogContent from '../../../data/site-catalog-content.json';
+import ProductCard from '../../catalog/components/ProductCard.astro';
+
+interface Props {
+  products: Product[];
+  lang: Lang;
+}
+
+const { products, lang } = Astro.props;
+const t = catalogContent[lang] ?? catalogContent.es;
+---
+
+{products.length > 0 && (
+  <section class="mt-14 border-t border-slate-200 pt-10" data-animate="fade-up">
+    <h2 class="mb-8 text-center text-xl font-semibold text-[#1D70B8] sm:text-2xl">
+      {t.productDetail.relatedTitle}
+    </h2>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {products.map((product) => (
+        <ProductCard product={product} lang={lang} />
+      ))}
+    </div>
+  </section>
+)}

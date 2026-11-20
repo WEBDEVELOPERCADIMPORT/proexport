@@ -1,0 +1,88 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { LANGUAGES, type Lang } from '../../../../i18n/config.i18n';
+import { actions } from 'astro:actions';
+import PromoSlider from '../../../../components/catalog/sections/PromoSlider.astro';
+import CatalogSidebar from '../../../../components/common/CatalogSidebar.astro';
+import ProductGridSection from '../../../../components/catalog/sections/ProductGridSection.astro';
+
+const lang = Astro.params.lang as Lang;
+const { category: categorySlug } = Astro.params;
+
+if (!(lang in LANGUAGES) || !categorySlug) {
+  return Astro.redirect('/404');
+}
+
+const { data: categoriesResponse } = await Astro.callAction(
+  actions.getCategories,
+  {}
+);
+const categories = categoriesResponse?.data ?? [];
+const activeCategory = categories.find((cat) => cat.slug === categorySlug);
+
+if (!activeCategory) {
+  return Astro.redirect('/404');
+}
+
+const searchParams = Astro.url.searchParams;
+const search = searchParams.get('search')?.trim() || undefined;
+const rawSort = searchParams.get('sort');
+const sort: 'default' | 'asc' | 'desc' =
+  rawSort === 'asc' || rawSort === 'desc' ? rawSort : 'default';
+const rawPage = Number(searchParams.get('page') ?? '1');
+const page = Number.isInteger(rawPage) && rawPage >= 1 ? rawPage : 1;
+
+const [{ data: brandsResponse }, { data: productsResponse }] =
+  await Promise.all([
+    Astro.callAction(actions.getBrands, {}),
+    Astro.callAction(actions.getProducts, {
+      categorySlug,
+      search,
+      sort,
+      page,
+      limit: 20,
+    }),
+  ]);
+
+const brands = brandsResponse?.data ?? [];
+const productsData = productsResponse?.data ?? {
+  products: [],
+  total: 0,
+  page: 1,
+  totalPages: 0,
+};
+
+const categoryTitle = activeCategory.name[lang] ?? activeCategory.name.es;
+const categoryDescription =
+  activeCategory.description[lang] ?? activeCategory.description.es;
+---
+
+<Layout
+  title={`${categoryTitle} | Proexport Guatemala`}
+  lang={lang}
+  description={categoryDescription}
+  image={activeCategory.bannerImage}
+>
+  <main>
+    <PromoSlider lang={lang} />
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-8">
+      <CatalogSidebar
+        lang={lang}
+        categories={categories}
+        brands={brands}
+        activeCategorySlug={categorySlug}
+      />
+      <ProductGridSection
+        lang={lang}
+        products={productsData.products}
+        total={productsData.total}
+        page={productsData.page}
+        totalPages={productsData.totalPages}
+        baseUrl={`/${lang}/product-category/${categorySlug}/`}
+        search={search}
+        sort={sort}
+      />
+    </div>
+  </main>
+</Layout>

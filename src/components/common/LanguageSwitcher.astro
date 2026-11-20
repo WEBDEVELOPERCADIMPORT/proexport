@@ -1,0 +1,30 @@
+---
+import type { Lang } from "../../i18n/config.i18n";
+import { getUiLabels, switchLangUrl } from "../../i18n/ui.i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const targetLang: Lang = lang === "es" ? "en" : "es";
+const switchHref = switchLangUrl(Astro.url, targetLang);
+const labels = getUiLabels(lang);
+const flagSrc = lang === "es" ? "/images/home/flag-us.webp" : "/images/home/flag-gt.png";
+const flagAlt = lang === "es" ? "US Flag" : "Bandera de Guatemala";
+---
+
+<a
+  href={switchHref}
+  title={labels.switchToTitle}
+  class="inline-flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-accent transition-colors py-1 px-2.5 rounded-full hover:bg-slate-50"
+>
+  <img
+    src={flagSrc}
+    alt={flagAlt}
+    width="18"
+    height="18"
+    class="w-4.5 h-4.5 rounded-full object-cover border border-gray-200 shrink-0"
+  />
+  <span>{labels.switchToLabel}</span>
+</a>

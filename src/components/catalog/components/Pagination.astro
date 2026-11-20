@@ -1,0 +1,79 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+  queryParams?: Record<string, string>;
+}
+
+const {
+  currentPage,
+  totalPages,
+  baseUrl,
+  queryParams = {},
+} = Astro.props;
+
+function buildPageUrl(pageNum: number): string {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(queryParams)) {
+    if (value) {
+      params.set(key, value);
+    }
+  }
+  if (pageNum > 1) {
+    params.set('page', String(pageNum));
+  }
+  const qs = params.toString();
+  return qs ? `${baseUrl}?${qs}` : baseUrl;
+}
+
+const pages: (number | 'ellipsis')[] = [];
+if (totalPages <= 7) {
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push(i);
+  }
+} else {
+  pages.push(1);
+  if (currentPage > 3) pages.push('ellipsis');
+  const start = Math.max(2, currentPage - 1);
+  const end = Math.min(totalPages - 1, currentPage + 1);
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+  if (currentPage < totalPages - 2) pages.push('ellipsis');
+  pages.push(totalPages);
+}
+---
+
+{totalPages > 1 && (
+  <nav aria-label="Pagination" class="mt-10 flex items-center justify-center gap-2">
+    {pages.map((item) =>
+      item === 'ellipsis' ? (
+        <span class="px-1 text-xs text-slate-400">...</span>
+      ) : (
+        <a
+          href={buildPageUrl(item)}
+          aria-current={item === currentPage ? 'page' : undefined}
+          class:list={[
+            'flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold transition-colors',
+            item === currentPage
+              ? 'bg-[#0072B5] text-white'
+              : 'border border-slate-200 text-slate-600 hover:bg-slate-100',
+          ]}
+        >
+          {item}
+        </a>
+      )
+    )}
+
+    {currentPage < totalPages && (
+      <a
+        href={buildPageUrl(currentPage + 1)}
+        aria-label="Next page"
+        class="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-xs font-semibold text-slate-600 transition-colors hover:bg-slate-100"
+      >
+        →
+      </a>
+    )}
+  </nav>
+)}

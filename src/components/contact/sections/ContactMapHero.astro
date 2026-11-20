@@ -1,0 +1,26 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import contactContent from '../../../data/site-contact-content.json';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = contactContent[lang] ?? contactContent.es;
+---
+
+<section class="relative h-64 w-full overflow-hidden md:h-80">
+  <img
+    src={t.banner.image}
+    alt={t.banner.title}
+    class="absolute inset-0 h-full w-full object-cover object-center"
+  />
+  <div class="absolute inset-0 bg-[#1D70B8]/70"></div>
+
+  <div class="relative z-10 flex h-full w-full items-center justify-center px-4 text-center" data-animate="fade-up">
+    <h1 class="text-3xl font-bold uppercase tracking-wider text-white md:text-4xl proexport-underline-center">
+      {t.banner.title}
+    </h1>
+  </div>
+</section>

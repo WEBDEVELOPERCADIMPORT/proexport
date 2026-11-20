@@ -1,0 +1,131 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import catalogContent from '../../../data/site-catalog-content.json';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = catalogContent[lang] ?? catalogContent.es;
+const slides = t.promoSlides ?? [];
+---
+
+{slides.length > 0 && (
+  <section
+    class="relative w-full overflow-hidden bg-slate-100"
+    data-promo-slider
+    aria-roledescription="carousel"
+  >
+    <div
+      class="flex transition-transform duration-500 ease-in-out"
+      data-promo-track
+    >
+      {slides.map((slide) => (
+        <div class="w-full shrink-0">
+          <a
+            href={`/${lang}/productos/?brand=${slide.brandSlug}`}
+            class="block w-full focus:outline-none"
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              class="w-full h-auto max-h-[440px] object-cover"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      ))}
+    </div>
+
+    {slides.length > 1 && (
+      <>
+        <button
+          type="button"
+          data-promo-prev
+          aria-label="Previous slide"
+          class="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#0F3D6E] shadow-md transition hover:bg-white cursor-pointer"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          data-promo-next
+          aria-label="Next slide"
+          class="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#0F3D6E] shadow-md transition hover:bg-white cursor-pointer"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </>
+    )}
+  </section>
+)}
+
+<script>
+  const promoTimers: number[] = [];
+
+  function clearPromoTimers() {
+    while (promoTimers.length > 0) {
+      const id = promoTimers.pop();
+      if (id !== undefined) window.clearInterval(id);
+    }
+  }
+
+  function initPromoSliders() {
+    clearPromoTimers();
+
+    const sliders = document.querySelectorAll<HTMLElement>('[data-promo-slider]');
+    sliders.forEach((slider) => {
+      const track = slider.querySelector<HTMLElement>('[data-promo-track]');
+      const prevBtn = slider.querySelector<HTMLButtonElement>('[data-promo-prev]');
+      const nextBtn = slider.querySelector<HTMLButtonElement>('[data-promo-next]');
+      if (!track) return;
+
+      const total = track.children.length;
+      if (total <= 1) return;
+
+      let current = 0;
+      let timer: number | undefined;
+
+      const updateSlide = () => {
+        track.style.transform = `translateX(-${current * 100}%)`;
+      };
+
+      const startAutoRotate = () => {
+        if (timer !== undefined) window.clearInterval(timer);
+        timer = window.setInterval(() => {
+          current = (current + 1) % total;
+          updateSlide();
+        }, 3000);
+        promoTimers.push(timer);
+      };
+
+      if (slider.dataset.initialized !== 'true') {
+        slider.dataset.initialized = 'true';
+
+        prevBtn?.addEventListener('click', () => {
+          current = (current - 1 + total) % total;
+          updateSlide();
+          startAutoRotate();
+        });
+
+        nextBtn?.addEventListener('click', () => {
+          current = (current + 1) % total;
+          updateSlide();
+          startAutoRotate();
+        });
+      }
+
+      startAutoRotate();
+    });
+  }
+
+  initPromoSliders();
+  document.addEventListener('astro:page-load', initPromoSliders);
+  document.addEventListener('astro:before-swap', clearPromoTimers);
+</script>

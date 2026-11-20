@@ -1,0 +1,564 @@
+{
+  "products": [
+    {
+      "slug": "cancun-aloe-vera-sandia-500ml-24",
+      "sku": "01-0301",
+      "name": "Cancun aloe vera Sandia 500ml 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0301.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-sandia-1-5lt-12",
+      "sku": "01-0307",
+      "name": "Cancun aloe vera Sandia 1.5lt 12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0307.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-fresa-500ml-24",
+      "sku": "01-0299",
+      "name": "Cancun aloe vera Fresa 500ml 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0299.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-fresa-1-5lt-12",
+      "sku": "01-0305",
+      "name": "Cancun aloe vera Fresa 1.5lt 12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0305.png"
+    },
+    {
+      "slug": "titas-fibra-esponja-multiusos-1pk",
+      "sku": "28-0168",
+      "name": "Titas FIBRA ESPONJA MULTIUSOS 1PK",
+      "category_slug": "cuidado-para-el-hogar",
+      "brand_slug": "titas",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/acdb47b7-0fd8-4b38-aaf5-6a72c1047747/products/28-0168.png"
+    },
+    {
+      "slug": "titas-fibra-verde-heavy-duty-3pk",
+      "sku": "28-0167",
+      "name": "Titas FIBRA VERDE HEAVY DUTY 3PK",
+      "category_slug": "cuidado-para-el-hogar",
+      "brand_slug": "titas",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/acdb47b7-0fd8-4b38-aaf5-6a72c1047747/products/28-0167.png"
+    },
+    {
+      "slug": "titas-fibra-esponja-multicolores-4pk",
+      "sku": "28-0166",
+      "name": "Titas FIBRA ESPONJA MULTICOLORES 4PK",
+      "category_slug": "cuidado-para-el-hogar",
+      "brand_slug": "titas",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/acdb47b7-0fd8-4b38-aaf5-6a72c1047747/products/28-0166.png"
+    },
+    {
+      "slug": "titas-fibra-celulosa-3pk",
+      "sku": "28-0165",
+      "name": "Titas Fibra CELULOSA 3PK",
+      "category_slug": "cuidado-para-el-hogar",
+      "brand_slug": "titas",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/acdb47b7-0fd8-4b38-aaf5-6a72c1047747/products/28-0165.png"
+    },
+    {
+      "slug": "relox-lufa-faja-de-mano",
+      "sku": "28-0162",
+      "name": "Relox Lufa Faja de Mano",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/28-0162.png"
+    },
+    {
+      "slug": "relox-lufa-faja-medium",
+      "sku": "28-0161",
+      "name": "Relox Lufa Faja Medium",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/28-0161.png"
+    },
+    {
+      "slug": "guatelinda-chile-coban-grano-1-5oz-x12",
+      "sku": "06-0197",
+      "name": "Guatelinda Chile Coban grano 1.5Oz X12",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0197.png"
+    },
+    {
+      "slug": "guatelinda-semilla-maranon-horneado-2-5-oz-70g",
+      "sku": "04-0247",
+      "name": "Guatelinda Semilla Marañon Horneado 2.5 oz (70g)",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/04-0247.png"
+    },
+    {
+      "slug": "guatelinda-mani-con-sal-2-5-oz-70g",
+      "sku": "04-0246",
+      "name": "Guatelinda Mani Con Sal 2.5 oz (70g)",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/04-0246.png"
+    },
+    {
+      "slug": "titas-limpiador-multiusos-lavanda-1lt",
+      "sku": "43-0023",
+      "name": "Titas limpiador multiusos lavanda 1lt",
+      "category_slug": "cuidado-para-el-hogar",
+      "brand_slug": "titas",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/acdb47b7-0fd8-4b38-aaf5-6a72c1047747/products/43-0023.png"
+    },
+    {
+      "slug": "fixion-gel-1kg-clear",
+      "sku": "10-0065",
+      "name": "Fixion Gel 1kg Clear",
+      "category_slug": "cuidado-para-el-cabello",
+      "brand_slug": "fixion",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/5fd3eee4-43ea-4636-8749-1d2ac1dfde4b/products/10-0065.png"
+    },
+    {
+      "slug": "fixion-gel-450gr-clear",
+      "sku": "10-0068",
+      "name": "Fixion Gel 450gr Clear",
+      "category_slug": "cuidado-para-el-cabello",
+      "brand_slug": "fixion",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/5fd3eee4-43ea-4636-8749-1d2ac1dfde4b/products/10-0068.png"
+    },
+    {
+      "slug": "fixion-gel-250gr-clear",
+      "sku": "10-0085",
+      "name": "Fixion Gel 250gr Clear",
+      "category_slug": "cuidado-para-el-cabello",
+      "brand_slug": "fixion",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/5fd3eee4-43ea-4636-8749-1d2ac1dfde4b/products/10-0085.png"
+    },
+    {
+      "slug": "relox-lufas-estropajo-big",
+      "sku": "28-0149",
+      "name": "Relox Lufas Estropajo big",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/28-0149.png"
+    },
+    {
+      "slug": "relox-lufas-estropajo-small",
+      "sku": "28-0148",
+      "name": "Relox Lufas Estropajo small",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/28-0148.png"
+    },
+    {
+      "slug": "relox-lufas-estropajo-medium",
+      "sku": "28-0147",
+      "name": "Relox Lufas Estropajo Medium",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/28-0147.png"
+    },
+    {
+      "slug": "relox-jabon-classic-200gr-x12",
+      "sku": "15-0154",
+      "name": "Relox jabon Classic 200gr x12",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/15-0154.png"
+    },
+    {
+      "slug": "relox-jabon-vitamin-e-y-glicerin-200gr-x12",
+      "sku": "15-0153",
+      "name": "Relox jabon Vitamin E y Glicerin 200gr x12",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/15-0153.png"
+    },
+    {
+      "slug": "relox-jabon-neutral-200gr-12",
+      "sku": "15-0152",
+      "name": "Relox jabon Neutral 200gr/12",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/15-0152.png"
+    },
+    {
+      "slug": "relox-jabon-yogurt-fruits-200gr-x12",
+      "sku": "15-0151",
+      "name": "Relox jabon yogurt & fruits 200gr x12",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/15-0151.png"
+    },
+    {
+      "slug": "relox-jabon-eucalyptus-mint-200gr-x12",
+      "sku": "15-0150",
+      "name": "Relox jabon eucalyptus mint 200gr x12",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/15-0150.png"
+    },
+    {
+      "slug": "relox-jabon-aloe-y-olive-200gr-x12",
+      "sku": "15-0149",
+      "name": "Relox jabon Aloe y Olive 200gr x12",
+      "category_slug": "cuidado-personal",
+      "brand_slug": "relox",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/94b25d4a-e657-4463-b2bf-7d50ff07a197/products/15-0149.png"
+    },
+    {
+      "slug": "guatelinda-chocolate-clasico-16oz",
+      "sku": "06-0115",
+      "name": "Guatelinda Chocolate clasico 16oz",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0115.png"
+    },
+    {
+      "slug": "guatelinda-rosca-de-xela-5x12-bag-7-06-oz",
+      "sku": "06-0185",
+      "name": "Guatelinda Rosca de Xela 5x12 Bag. 7.06 oz",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0185.png"
+    },
+    {
+      "slug": "guatelinda-chile-chiltepe-piquin-24-16oz",
+      "sku": "06-0129",
+      "name": "Guatelinda Chile chiltepe piquin 24/16oz",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0129.png"
+    },
+    {
+      "slug": "guatelinda-jalapeno-en-escabeche-12-32oz",
+      "sku": "06-0128",
+      "name": "Guatelinda Jalapeno en escabeche 12/32oz",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0128.png"
+    },
+    {
+      "slug": "guatelinda-champurrada-10x12-14-07oz",
+      "sku": "06-0149",
+      "name": "Guatelinda Champurrada 10X12 14.07oz",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0149.png"
+    },
+    {
+      "slug": "guatelinda-rosca-de-feria-4x12-bag-6-17oz",
+      "sku": "06-0184",
+      "name": "Guatelinda Roscas de Feria 4x12 Bag 6.17OZ",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0184.png"
+    },
+    {
+      "slug": "guatelinda-horchata-en-polvo-435gr-x12",
+      "sku": "06-0194",
+      "name": "Guatelinda Horchata en polvo 435GR x12",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0194.png"
+    },
+    {
+      "slug": "guatelinda-atol-de-elote-200gr-12",
+      "sku": "06-0192",
+      "name": "Guatelinda Atol De Elote 200GR x12",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0192.png"
+    },
+    {
+      "slug": "guatelinda-atol-de-haba-210gr-x12",
+      "sku": "06-0193",
+      "name": "Guatelinda Atol De Haba 210GR x12",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0193.png"
+    },
+    {
+      "slug": "guatelinda-atol-de-platano-200g-12",
+      "sku": "06-0191",
+      "name": "Guatelinda Atol De Platano 200G x12",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0191.png"
+    },
+    {
+      "slug": "guatelinda-arroz-con-chocolate-315g-x12",
+      "sku": "06-0119",
+      "name": "Guatelinda arroz con chocolate 315G x12",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0099.png"
+    },
+    {
+      "slug": "guatelinda-flor-de-izote-12-32oz",
+      "sku": "06-0099",
+      "name": "Guatelinda Flor de Izote 12/32oz",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0099.png"
+    },
+    {
+      "slug": "guatelinda-pacaya-12-32-oz",
+      "sku": "06-0098",
+      "name": "Guatelinda Pacaya 12/32 oz",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0098.png"
+    },
+    {
+      "slug": "guatelinda-nance-in-light-syrup-12-32oz",
+      "sku": "06-0097",
+      "name": "Guatelinda Nance in Light Syrup 12/32oz",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/06-0097.png"
+    },
+    {
+      "slug": "guatelinda-mani-con-cascara-2-5-oz-70g",
+      "sku": "04-0249",
+      "name": "Guatelinda Mani con Cascara 2.5 oz (70g)",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/04-0249.png"
+    },
+    {
+      "slug": "guatelinda-mani-con-chile-limon-2-5-oz-70g",
+      "sku": "04-0248",
+      "name": "Guatelinda Mani con Chile Limon 2.5 oz (70g)",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/04-0248.png"
+    },
+    {
+      "slug": "guatelinda-haba-frita-con-sal-2-5-oz-70g",
+      "sku": "02-0080",
+      "name": "Guatelinda Haba Frita con Sal 2.5 oz (70g)",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/02-0080.png"
+    },
+    {
+      "slug": "guatelinda-haba-frita-chile-limon-2-5-oz-70g",
+      "sku": "02-0058",
+      "name": "Guatelinda Haba frita chile limon 2.5 oz (70g)",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/02-0058.png"
+    },
+    {
+      "slug": "guatelinda-haba-tostada-2-5-oz-70g",
+      "sku": "02-0060",
+      "name": "Guatelinda Haba tostada 2.5 oz (70g)",
+      "category_slug": "alimentos",
+      "brand_slug": "guatelinda",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/3c9b0c21-eafd-4999-8b66-853f65ecb490/products/02-0060.png"
+    },
+    {
+      "slug": "bebida-de-leche-de-coco-cancun-con-nata-de-coco-fresa-280ml-x-24",
+      "sku": "01-0328",
+      "name": "Bebida de leche de coco cancún con nata de coco/fresa 280ml x 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0328.png"
+    },
+    {
+      "slug": "bebida-de-leche-de-coco-cancun-con-nata-de-coco-mango-280ml-x-24",
+      "sku": "01-0329",
+      "name": "Bebida de leche de coco cancún con nata de coco/mango 280ml x 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0329.png"
+    },
+    {
+      "slug": "bebida-de-leche-de-coco-cancun-con-nata-de-coco-original-280ml-x-24",
+      "sku": "01-0327",
+      "name": "Bebida de leche de coco cancún con nata de coco/original 280ml x 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0327.png"
+    },
+    {
+      "slug": "bebida-de-leche-de-coco-cancun-con-nata-de-coco-fresa-470ml-x-12",
+      "sku": "01-0271",
+      "name": "Bebida de leche de coco cancún con nata de coco/fresa 470ml x 12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0271.png"
+    },
+    {
+      "slug": "bebida-de-leche-de-coco-cancun-con-nata-de-coco-mango-470ml-x-12",
+      "sku": "01-0270",
+      "name": "Bebida de leche de coco cancún con nata de coco/mango 470ml x 12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0270.png"
+    },
+    {
+      "slug": "bebida-de-leche-de-coco-cancun-con-nata-de-coco-original-470ml-x-12",
+      "sku": "01-0269",
+      "name": "Bebida de leche de coco cancún con nata de coco/original 470ml x 12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0269.png"
+    },
+    {
+      "slug": "cancun-mango-x12-1-lt-33oz",
+      "sku": "01-0382",
+      "name": "Cancun mango x12 1 lt 33oz",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0382.png"
+    },
+    {
+      "slug": "cancun-mango-x-24-250ml-8-5oz",
+      "sku": "01-0183",
+      "name": "Cancun mango x 24 250ml 8.5oz",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0183.png"
+    },
+    {
+      "slug": "cancun-coconut-water-with-pulp-490ml-24",
+      "sku": "01-0314",
+      "name": "Cancun coconut water with pulp 490ml/24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0314.png"
+    },
+    {
+      "slug": "cancun-fresa-banana-jugo-con-pulpa-490ml-x24",
+      "sku": "01-0285",
+      "name": "Cancun fresa banana jugo con pulpa 490ml x24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0285.png"
+    },
+    {
+      "slug": "cancun-naranja-jugo-con-pulpa-490ml-x24",
+      "sku": "01-0284",
+      "name": "Cancun naranja jugo con pulpa 490ml x24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0284.png"
+    },
+    {
+      "slug": "cancun-manzana-jugo-con-pulpa-490ml-24",
+      "sku": "01-0283",
+      "name": "Cancun manzana jugo con pulpa 490ml x24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0283.png"
+    },
+    {
+      "slug": "cancun-pina-jugo-con-pulpa-490ml-x24",
+      "sku": "01-0282",
+      "name": "Cancun piña jugo con pulpa 490ml x24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0282.png"
+    },
+    {
+      "slug": "cancun-durazno-jugo-con-pulpa-490ml-x24",
+      "sku": "01-0281",
+      "name": "Cancun durazno jugo con pulpa 490ml x24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0281.png"
+    },
+    {
+      "slug": "cancun-guanabana-jugo-con-pulpa-490ml-x24",
+      "sku": "01-0279",
+      "name": "Cancun guanabana jugo con pulpa 490ml x24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0279.png"
+    },
+    {
+      "slug": "cancun-coconut-water-with-pulp-490ml-12-glass",
+      "sku": "01-0286",
+      "name": "Cancun coconut water with pulp 490ml 12 glass",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0286.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-mango-500ml-24",
+      "sku": "01-0264",
+      "name": "Cancun aloe vera Mango 500ml 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0264.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-kiwi-500ml-24",
+      "sku": "01-0300",
+      "name": "Cancun aloe vera Kiwi 500ml 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0300.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-500ml-pina-24",
+      "sku": "01-0262",
+      "name": "Cancun aloe vera 500ml piña 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0262.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-500ml-original-24",
+      "sku": "01-0261",
+      "name": "Cancun aloe vera 500ml original 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0261.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-mango-1-5lt-12",
+      "sku": "01-0268",
+      "name": "Cancun aloe vera Mango 1.5lt 12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0268.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-kiwi-1-5lt-12",
+      "sku": "01-0306",
+      "name": "Cancun aloe vera Kiwi 1.5lt 12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0306.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-1-5lt-pina-12",
+      "sku": "01-0266",
+      "name": "Cancun aloe vera 1.5lt piña 12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0266.png"
+    },
+    {
+      "slug": "cancun-aloe-vera-1-5lt-original-12",
+      "sku": "01-0265",
+      "name": "Cancun aloe vera 1.5lt original/12",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0265.png"
+    },
+    {
+      "slug": "cancun-soursop-juice-with-pulp-490ml-24",
+      "sku": "01-0280",
+      "name": "Cancun mango jugo con pulpa 490ml 24",
+      "category_slug": "bebidas",
+      "brand_slug": "cancun",
+      "image": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/13fc83ec-1a35-427a-a6cf-3c5ffd683734/products/01-0280.png"
+    }
+  ]
+}

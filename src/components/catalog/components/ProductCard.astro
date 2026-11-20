@@ -1,0 +1,41 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import type { Product } from '../../../actions/products/getProducts.action';
+import catalogContent from '../../../data/site-catalog-content.json';
+
+interface Props {
+  product: Product;
+  lang: Lang;
+}
+
+const { product, lang } = Astro.props;
+const t = catalogContent[lang] ?? catalogContent.es;
+const productName = product.name;
+const productHref = `/${lang}/${product.category_slug}/${product.slug}/`;
+---
+
+<article class="group flex flex-col items-center justify-between bg-white p-4 text-center" data-animate="fade-up">
+  <a href={productHref} class="block w-full overflow-hidden py-2">
+    <img
+      src={product.image}
+      alt={productName}
+      loading="lazy"
+      class="mx-auto h-48 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+    />
+  </a>
+
+  <div class="mt-4 flex flex-1 flex-col items-center justify-between gap-4 w-full">
+    <h3 class="text-xs font-medium leading-snug text-[#1D70B8] sm:text-sm">
+      <a href={productHref} class="hover:underline">
+        {productName}
+      </a>
+    </h3>
+
+    <a
+      href={productHref}
+      class="inline-block rounded bg-[#0F3D6E] px-5 py-2 text-[11px] font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#1D70B8]"
+    >
+      {t.productCard.viewProduct}
+    </a>
+  </div>
+</article>

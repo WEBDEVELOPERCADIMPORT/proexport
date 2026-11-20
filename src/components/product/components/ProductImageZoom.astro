@@ -1,0 +1,94 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<div class="relative flex items-center justify-center rounded-lg border border-slate-100 bg-white p-8 shadow-sm" data-image-zoom>
+  <button
+    type="button"
+    data-zoom-open
+    aria-label="Zoom image"
+    class="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-[#1D70B8] hover:text-[#1D70B8] cursor-pointer"
+  >
+    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0zM11 8v6m-3-3h6" />
+    </svg>
+  </button>
+
+  <img
+    src={src}
+    alt={alt}
+    class="max-h-96 w-auto object-contain"
+  />
+
+  <div
+    data-zoom-modal
+    role="dialog"
+    aria-modal="true"
+    aria-label={alt}
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"
+  >
+    <button
+      type="button"
+      data-zoom-close
+      aria-label="Close zoom modal"
+      class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25 cursor-pointer"
+    >
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <img
+      src={src}
+      alt={alt}
+      class="max-h-[85vh] max-w-[90vw] rounded-lg bg-white p-4 object-contain shadow-2xl"
+    />
+  </div>
+</div>
+
+<script>
+  function initProductImageZoom() {
+    const containers = document.querySelectorAll<HTMLElement>('[data-image-zoom]');
+    containers.forEach((container) => {
+      if (container.dataset.initialized === 'true') return;
+      container.dataset.initialized = 'true';
+
+      const openBtn = container.querySelector<HTMLButtonElement>('[data-zoom-open]');
+      const closeBtn = container.querySelector<HTMLButtonElement>('[data-zoom-close]');
+      const modal = container.querySelector<HTMLElement>('[data-zoom-modal]');
+      if (!modal) return;
+
+      const openModal = () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      };
+
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+
+      openBtn?.addEventListener('click', openModal);
+      closeBtn?.addEventListener('click', closeModal);
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
+    });
+  }
+
+  initProductImageZoom();
+  document.addEventListener('astro:page-load', initProductImageZoom);
+</script>

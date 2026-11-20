@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 - Página no encontrada | Proexport Guatemala" lang="es">
+  <section class="min-h-[70vh] flex flex-col justify-center items-center text-center px-6 py-20 bg-slate-50">
+    <span class="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+      Error 404
+    </span>
+    <h1 class="mt-2 text-7xl sm:text-8xl font-extrabold text-navy tracking-tight">
+      404
+    </h1>
+    <div class="mt-4 w-16 h-[3px] bg-gold rounded-full" aria-hidden="true"></div>
+    <p class="mt-6 text-xl sm:text-2xl font-bold text-slate-800">
+      Página no encontrada / Page not found
+    </p>
+    <p class="mt-2 max-w-md text-sm sm:text-base text-slate-600">
+      La página o el idioma que buscas no existe o fue movido.
+    </p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="/es/"
+        class="inline-flex items-center justify-center rounded-lg bg-navy px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-accent transition-colors"
+      >
+        Ir al inicio (ES)
+      </a>
+      <a
+        href="/en/"
+        class="inline-flex items-center justify-center rounded-lg border border-navy px-6 py-3 text-sm font-bold text-navy hover:bg-navy hover:text-white transition-colors"
+      >
+        Go to Home (EN)
+      </a>
+    </div>
+  </section>
+</Layout>

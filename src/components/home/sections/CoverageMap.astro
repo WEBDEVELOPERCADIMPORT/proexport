@@ -1,0 +1,61 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import homeContent from '../../../data/site-home-content.json';
+import StatePinList from '../components/StatePinList.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = homeContent[lang] ?? homeContent.es;
+const cov = t.coverage;
+---
+
+<section class="relative overflow-hidden bg-[#0E5AA7] text-white pt-16 pb-24">
+  <!-- Background watermark image -->
+  <img
+    src={cov.bgImage}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity pointer-events-none"
+    loading="lazy"
+  />
+
+  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-12">
+      <!-- Left column: heading + white underline + StatePinList -->
+      <div class="lg:col-span-6 space-y-6" data-animate="slide-in-left">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            {cov.title}
+          </h2>
+          <div class="mt-3 w-14 h-[3px] bg-white rounded-full" aria-hidden="true"></div>
+          <p class="mt-4 text-sm sm:text-base text-sky-100/90 max-w-lg">
+            {cov.subtitle}
+          </p>
+        </div>
+
+        <StatePinList states={cov.locations} />
+      </div>
+
+      <!-- Right column: USA map with subtle golden pin indicators -->
+      <div class="lg:col-span-6 relative flex justify-center" data-animate="slide-in-right" data-animate-delay="200">
+        <div class="relative w-full max-w-xl">
+          <img
+            src={cov.mapImage}
+            alt={cov.title}
+            class="w-full h-auto object-contain drop-shadow-xl"
+            loading="lazy"
+          />
+          <!-- Subtle golden pin indicators -->
+          <span class="hidden sm:block absolute top-[28%] left-[18%] w-3 h-3 rounded-full bg-gold ring-4 ring-gold/30" aria-hidden="true"></span>
+          <span class="hidden sm:block absolute top-[55%] left-[22%] w-3 h-3 rounded-full bg-gold ring-4 ring-gold/30" aria-hidden="true"></span>
+          <span class="hidden sm:block absolute top-[62%] left-[48%] w-3 h-3 rounded-full bg-gold ring-4 ring-gold/30" aria-hidden="true"></span>
+          <span class="hidden sm:block absolute top-[38%] left-[78%] w-3 h-3 rounded-full bg-gold ring-4 ring-gold/30" aria-hidden="true"></span>
+          <span class="hidden sm:block absolute top-[72%] left-[74%] w-3 h-3 rounded-full bg-gold ring-4 ring-gold/30" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

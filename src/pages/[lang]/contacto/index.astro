@@ -1,0 +1,27 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { LANGUAGES, type Lang } from '../../../i18n/config.i18n';
+import contactContent from '../../../data/site-contact-content.json';
+import ContactMapHero from '../../../components/contact/sections/ContactMapHero.astro';
+import ContactFormLayout from '../../../components/contact/sections/ContactFormLayout.astro';
+
+const lang = Astro.params.lang as Lang;
+
+if (!(lang in LANGUAGES)) {
+  return Astro.redirect('/404');
+}
+
+const content = contactContent[lang];
+---
+
+<Layout
+  title={content.meta.title}
+  lang={lang}
+  description={content.meta.description}
+  image={content.banner.image}
+>
+  <main>
+    <ContactMapHero lang={lang} />
+    <ContactFormLayout lang={lang} />
+  </main>
+</Layout>

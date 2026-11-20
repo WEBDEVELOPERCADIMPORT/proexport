@@ -1,0 +1,74 @@
+{
+  "categories": [
+    {
+      "id": "alimentos",
+      "slug": "alimentos",
+      "name": {
+        "es": "Alimentos",
+        "en": "Food"
+      },
+      "description": {
+        "es": "Productos alimenticios auténticos guatemaltecos, granos, botanas, atoles, chocolates y conservas.",
+        "en": "Authentic Guatemalan food products, snacks, traditional hot beverages, chocolates, and preserves."
+      },
+      "bannerImage": "/images/banners/productos-banner.jpg",
+      "order": 1
+    },
+    {
+      "id": "bebidas",
+      "slug": "bebidas",
+      "name": {
+        "es": "Bebidas",
+        "en": "Beverages"
+      },
+      "description": {
+        "es": "Bebidas tropicales refrescantes, aloe vera, agua de coco, leche de coco y jugos con pulpa.",
+        "en": "Refreshing tropical beverages, aloe vera drinks, coconut water, coconut milk, and juices with pulp."
+      },
+      "bannerImage": "/images/banners/productos-banner.jpg",
+      "order": 2
+    },
+    {
+      "id": "cuidado-para-el-cabello",
+      "slug": "cuidado-para-el-cabello",
+      "name": {
+        "es": "Cuidado para el cabello",
+        "en": "Hair Care"
+      },
+      "description": {
+        "es": "Geles fijadores y productos especializados para el cuidado y estilizado del cabello.",
+        "en": "Styling gels and specialized products for hair care and styling."
+      },
+      "bannerImage": "/images/banners/productos-banner.jpg",
+      "order": 3
+    },
+    {
+      "id": "cuidado-para-el-hogar",
+      "slug": "cuidado-para-el-hogar",
+      "name": {
+        "es": "Cuidado para el hogar",
+        "en": "Home Care"
+      },
+      "description": {
+        "es": "Limpiadores multiusos, fibras y esponjas de alto rendimiento para la limpieza del hogar.",
+        "en": "Multi-purpose cleaners, scouring pads, and high-performance sponges for home cleaning."
+      },
+      "bannerImage": "/images/banners/productos-banner.jpg",
+      "order": 4
+    },
+    {
+      "id": "cuidado-personal",
+      "slug": "cuidado-personal",
+      "name": {
+        "es": "Cuidado Personal",
+        "en": "Personal Care"
+      },
+      "description": {
+        "es": "Jabones de tocador y lufas naturales para el cuidado diario de la piel.",
+        "en": "Bath soaps and natural loofahs for daily skin care."
+      },
+      "bannerImage": "/images/banners/productos-banner.jpg",
+      "order": 5
+    }
+  ]
+}

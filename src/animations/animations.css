@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Global Reusable Scroll & Entrance Animations (CAD Import Inc)
+   Usage: Add `data-animate="<animation-name>"` to any HTML element.
+   Optional: `data-animate-delay="100|200|300|400|500"` (ms)
+   ========================================================================== */
+
+/* Base hidden state before intersection */
+[data-animate] {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Keyframes */
+@keyframes cadSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cadSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cadBubblePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+
+  82% {
+    opacity: 1;
+    transform: scale(0.97);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cadFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cadFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Active states triggered by IntersectionObserver (.is-visible) */
+[data-animate="slide-in-right"].is-visible {
+  animation: cadSlideInRight 2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate="slide-in-left"].is-visible {
+  animation: cadSlideInLeft 2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate="bubble-pop"] {
+  transform-origin: center center;
+}
+
+[data-animate="bubble-pop"].is-visible {
+  animation: cadBubblePop 4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate="fade-up"].is-visible {
+  animation: cadFadeUp 4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate="fade-in"].is-visible {
+  animation: cadFadeIn 4s ease-out both;
+}
+
+/* Optional Stagger Delays */
+[data-animate-delay="100"].is-visible {
+  animation-delay: 100ms;
+}
+
+[data-animate-delay="200"].is-visible {
+  animation-delay: 200ms;
+}
+
+[data-animate-delay="300"].is-visible {
+  animation-delay: 300ms;
+}
+
+[data-animate-delay="400"].is-visible {
+  animation-delay: 400ms;
+}
+
+[data-animate-delay="500"].is-visible {
+  animation-delay: 500ms;
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,43 @@
+---
+import type { Lang } from '../../../i18n/config.i18n';
+import aboutContent from '../../../data/site-about-content.json';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = aboutContent[lang] ?? aboutContent.es;
+const h = t.history;
+---
+
+<section class="bg-white py-14 md:py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-14">
+      <!-- Left: Handshake image -->
+      <div class="lg:col-span-6" data-animate="slide-in-left">
+        <div class="overflow-hidden rounded-xl shadow-lg border border-slate-100">
+          <img
+            src={h.image}
+            alt={h.title}
+            class="w-full h-72 sm:h-88 object-cover object-center"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Right: Narrative paragraph about CAD Import Inc. +20 years -->
+      <div class="lg:col-span-6 space-y-4" data-animate="slide-in-right" data-animate-delay="100">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          {h.tag}
+        </p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy tracking-tight proexport-underline">
+          {h.title}
+        </h2>
+        <p class="pt-2 text-base sm:text-lg leading-relaxed text-slate-600">
+          {h.description}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,238 @@
+---
+import type { Lang } from "../../i18n/config.i18n";
+import { useTranslations } from "../../i18n/utils.i18n";
+import { getUiLabels } from "../../i18n/ui.i18n";
+import TopBar from "./TopBar.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const labels = getUiLabels(lang);
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const isItemActive = (itemPath: string): boolean => {
+  if (itemPath.includes("#")) return false;
+  if (itemPath === "") {
+    return currentPath === `/${lang}`;
+  }
+  const target = `/${lang}/${itemPath}`;
+  return currentPath === target || currentPath.startsWith(`${target}/`);
+};
+---
+
+<header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto flex items-stretch">
+    <!-- Left solid navy logo block -->
+    <a
+      href={`/${lang}/`}
+      class="bg-navy flex items-center justify-center px-5 sm:px-6 py-2.5 shrink-0 transition-opacity hover:opacity-95"
+      aria-label={t.brandName}
+    >
+      <img
+        src="/images/home/proexport-logo-white.svg"
+        alt={t.brandName}
+        class="h-8 sm:h-9 lg:h-10 w-auto object-contain"
+      />
+    </a>
+
+    <!-- Right side: TopBar + Nav + LanguageSwitcher on desktop; hamburger on mobile -->
+    <div class="flex-1 flex flex-col justify-between min-w-0">
+      <!-- Desktop TopBar -->
+      <div class="hidden lg:block border-b border-gray-200">
+        <TopBar lang={lang} />
+      </div>
+
+      <!-- Main Nav Row -->
+      <div class="flex-1 flex items-center justify-end lg:justify-between px-4 sm:px-6 py-3 lg:py-2.5 gap-4">
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Main navigation">
+          {
+            t.navLinks.map((item) => {
+              const isExternal = item.href.startsWith("http");
+              const active = !isExternal && isItemActive(item.path);
+              return (
+                <a
+                  href={item.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  class:list={[
+                    "text-sm font-semibold py-1.5 transition-colors whitespace-nowrap border-b-2",
+                    active
+                      ? "text-accent border-accent"
+                      : "text-slate-700 border-transparent hover:text-accent hover:border-accent/50",
+                  ]}
+                >
+                  {item.label}
+                </a>
+              );
+            })
+          }
+          <LanguageSwitcher lang={lang} />
+        </nav>
+
+        <!-- Desktop Social Icons -->
+        <div class="hidden lg:flex items-center gap-3 shrink-0">
+          <a
+            href={t.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            class="text-accent hover:text-navy transition-colors p-1"
+          >
+            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+            </svg>
+          </a>
+          <a
+            href={t.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="text-accent hover:text-navy transition-colors p-1"
+          >
+            <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a
+            href={t.social.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+            class="text-accent hover:text-navy transition-colors p-1"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Controls: LanguageSwitcher + Hamburger -->
+        <div class="flex lg:hidden items-center gap-3">
+          <LanguageSwitcher lang={lang} />
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            aria-expanded="false"
+            aria-controls="mobile-menu-drawer"
+            aria-label={labels.openMenu}
+            data-open-label={labels.openMenu}
+            data-close-label={labels.closeMenu}
+            class="p-2 rounded-md text-navy hover:bg-slate-100 transition-colors"
+          >
+            <svg id="mobile-menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="mobile-menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div
+    id="mobile-menu-drawer"
+    class="hidden lg:hidden border-t border-gray-200 bg-white px-6 py-4 space-y-4"
+  >
+    <nav class="flex flex-col gap-2" aria-label="Mobile navigation">
+      {
+        t.navLinks.map((item) => {
+          const isExternal = item.href.startsWith("http");
+          const active = !isExternal && isItemActive(item.path);
+          return (
+            <a
+              href={item.href}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              class:list={[
+                "px-3 py-2 rounded-md text-sm font-semibold transition-colors",
+                active
+                  ? "bg-accent/10 text-accent"
+                  : "text-slate-700 hover:bg-slate-50 hover:text-accent",
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="pt-3 border-t border-gray-100">
+      <TopBar lang={lang} />
+    </div>
+
+    <div class="flex items-center justify-center gap-5 pt-2">
+      <a
+        href={t.social.facebook}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook"
+        class="text-accent hover:text-navy transition-colors"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+        </svg>
+      </a>
+      <a
+        href={t.social.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        class="text-accent hover:text-navy transition-colors"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+      <a
+        href={t.social.youtube}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="YouTube"
+        class="text-accent hover:text-navy transition-colors"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  function initMobileMenu() {
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const drawer = document.getElementById("mobile-menu-drawer");
+    const openIcon = document.getElementById("mobile-menu-icon-open");
+    const closeIcon = document.getElementById("mobile-menu-icon-close");
+
+    if (!toggleBtn || !drawer || toggleBtn.dataset.bound === "true") return;
+    toggleBtn.dataset.bound = "true";
+
+    toggleBtn.addEventListener("click", () => {
+      const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+      const nextState = !isExpanded;
+      toggleBtn.setAttribute("aria-expanded", String(nextState));
+      toggleBtn.setAttribute(
+        "aria-label",
+        nextState
+          ? toggleBtn.dataset.closeLabel || "Close menu"
+          : toggleBtn.dataset.openLabel || "Open menu"
+      );
+      drawer.classList.toggle("hidden", !nextState);
+      openIcon?.classList.toggle("hidden", nextState);
+      closeIcon?.classList.toggle("hidden", !nextState);
+    });
+  }
+
+  initMobileMenu();
+  document.addEventListener("astro:page-load", initMobileMenu);
+</script>

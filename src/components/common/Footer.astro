@@ -1,0 +1,64 @@
+---
+import type { Lang } from "../../i18n/config.i18n";
+import { useTranslations } from "../../i18n/utils.i18n";
+import { getUiLabels } from "../../i18n/ui.i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const labels = getUiLabels(lang);
+
+const usPhoneHref = `tel:${t.footer.usPhone.replace(/[^+\d]/g, "")}`;
+const gtPhoneHref = `tel:${t.footer.gtPhone.replace(/[^+\d]/g, "")}`;
+---
+
+<footer class="w-full bg-navy text-white">
+  <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col items-center gap-8" data-animate="fade-up">
+    <a href={`/${lang}/`} class="inline-block transition-opacity hover:opacity-90">
+      <img
+        src="/images/home/proexport-logo-white.svg"
+        alt={t.brandName}
+        class="h-9 sm:h-10 w-auto object-contain"
+      />
+    </a>
+
+    <div class="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-6 items-center justify-items-center">
+      <a
+        href={usPhoneHref}
+        class="flex items-center gap-3 text-sm sm:text-base font-medium text-white/95 hover:text-gold transition-colors"
+      >
+        <img
+          src="/images/home/flag-us.webp"
+          alt={t.footer.usLabel}
+          width="32"
+          height="32"
+          class="w-8 h-8 rounded-full object-cover border-2 border-white/30 shrink-0"
+        />
+        <span>{labels.phoneLabel} {t.footer.usPhone}</span>
+      </a>
+
+      <a
+        href={gtPhoneHref}
+        class="flex items-center gap-3 text-sm sm:text-base font-medium text-white/95 hover:text-gold transition-colors"
+      >
+        <img
+          src="/images/home/flag-gt.png"
+          alt={t.footer.gtLabel}
+          width="32"
+          height="32"
+          class="w-8 h-8 rounded-full object-cover border-2 border-white/30 shrink-0"
+        />
+        <span>{labels.phoneLabel} {t.footer.gtPhone}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="w-full bg-[#0B3057] py-4 px-6">
+    <p class="text-xs text-white/80 text-center">
+      {t.footer.copyright}
+    </p>
+  </div>
+</footer>

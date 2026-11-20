@@ -1,0 +1,112 @@
+{
+  "es": {
+    "brandName": "Proexport Guatemala",
+    "nav": [
+      {
+        "id": "home",
+        "label": "Inicio",
+        "path": ""
+      },
+      {
+        "id": "about",
+        "label": "Acerca de nosotros",
+        "path": "acerca-de-nosotros"
+      },
+      {
+        "id": "products",
+        "label": "Productos",
+        "path": "productos"
+      },
+      {
+        "id": "catalog",
+        "label": "Descarga nuestro catálogo",
+        "path": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/d597e43b-ccbd-4197-b67a-26c9b054289e/Catalogs/catalog-new.pdf"
+      },
+      {
+        "id": "contact",
+        "label": "Contacto",
+        "path": "contacto"
+      }
+    ],
+    "topBar": {
+      "address": "Zona de Negocios San Nicolas, 11 calle 6-11 El Llano, zona 4 de Mixco, bodega 25, Guatemala",
+      "phone": "+502 3991 2249",
+      "email": "sales@proexportgt.com"
+    },
+    "social": {
+      "facebook": "https://www.facebook.com/proexportgt",
+      "instagram": "https://www.instagram.com/proexportgt",
+      "youtube": "https://www.youtube.com/@proexportgt"
+    },
+    "sidebar": {
+      "categoriesTitle": "Categorías",
+      "brandsTitle": "Marcas",
+      "allProducts": "Todos los productos"
+    },
+    "footer": {
+      "description": "Exportadora guatemalteca dedicada a llevar el sabor, la tradición y la calidad de nuestros productos a tiendas y distribuidores en Estados Unidos.",
+      "usLabel": "Estados Unidos",
+      "usPhone": "+1 (302) 249-5219",
+      "gtLabel": "Guatemala",
+      "gtPhone": "+502 3991 2249",
+      "email": "sales@proexportgt.com",
+      "address": "Zona de Negocios San Nicolas, 11 calle 6-11 El Llano, zona 4 de Mixco, bodega 25, Guatemala",
+      "copyright": "Proexport Guatemala © 2026 All Rights Reserved"
+    }
+  },
+  "en": {
+    "brandName": "Proexport Guatemala",
+    "nav": [
+      {
+        "id": "home",
+        "label": "Home",
+        "path": ""
+      },
+      {
+        "id": "about",
+        "label": "About Us",
+        "path": "acerca-de-nosotros"
+      },
+      {
+        "id": "products",
+        "label": "Products",
+        "path": "productos"
+      },
+      {
+        "id": "catalog",
+        "label": "Download our catalog",
+        "path": "https://pub-5927920071e7461abb3ddbb3dcbff7a2.r2.dev/d597e43b-ccbd-4197-b67a-26c9b054289e/Catalogs/catalog-new.pdf"
+      },
+      {
+        "id": "contact",
+        "label": "Contact",
+        "path": "contacto"
+      }
+    ],
+    "topBar": {
+      "address": "Zona de Negocios San Nicolas, 11 calle 6-11 El Llano, zona 4 de Mixco, bodega 25, Guatemala",
+      "phone": "+502 3991 2249",
+      "email": "sales@proexportgt.com"
+    },
+    "social": {
+      "facebook": "https://www.facebook.com/proexportgt",
+      "instagram": "https://www.instagram.com/proexportgt",
+      "youtube": "https://www.youtube.com/@proexportgt"
+    },
+    "sidebar": {
+      "categoriesTitle": "Categories",
+      "brandsTitle": "Brands",
+      "allProducts": "All products"
+    },
+    "footer": {
+      "description": "Guatemalan export company dedicated to bringing the flavor, tradition, and quality of our products to stores and distributors across the United States.",
+      "usLabel": "United States",
+      "usPhone": "+1 (302) 249-5219",
+      "gtLabel": "Guatemala",
+      "gtPhone": "+502 3991 2249",
+      "email": "sales@proexportgt.com",
+      "address": "Zona de Negocios San Nicolas, 11 calle 6-11 El Llano, zona 4 de Mixco, bodega 25, Guatemala",
+      "copyright": "Proexport Guatemala © 2026 All Rights Reserved"
+    }
+  }
+}
